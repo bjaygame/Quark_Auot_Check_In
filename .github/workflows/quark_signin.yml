@@ -74,6 +74,11 @@ jobs:
       - name: 执行签到脚本
         env:
           COOKIE_QUARK: ${{ secrets.COOKIE_QUARK }}
+          SMTP_SERVER: ${{ secrets.SMTP_SERVER }}
+          SMTP_PORT: ${{ secrets.SMTP_PORT }}
+          EMAIL: ${{ secrets.EMAIL }}
+          PASSWORD: ${{ secrets.PASSWORD }}
+          SERVER_KEY: ${{ secrets.SERVER_KEY }}
         run: python checkIn_Quark.py
 
       - name: 标记今天签到成功
