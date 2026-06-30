@@ -115,7 +115,7 @@ class Quark:
         '''
         url = "https://drive-m.quark.cn/1/clouddrive/capacity/growth/info"
         querystring = {
-            "pr": "ucpro",
+            "pr": "qk_clouddrive",
             "fr": "iphone",
             "kps": self.param.get('kps'),
             "sign": self.param.get('sign'),
@@ -135,7 +135,7 @@ class Quark:
         '''
         url = "https://drive-m.quark.cn/1/clouddrive/capacity/growth/sign"
         querystring = {
-            "pr": "ucpro",
+            "pr": "qk_clouddrive",
             "fr": "iphone",
             "kps": self.param.get('kps'),
             "sign": self.param.get('sign'),
