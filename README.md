@@ -25,7 +25,8 @@
 - 感谢  [Spectrollay](https://github.com/Spectrollay) 对工作流的优化
 - 感谢  [haozihong ](https://github.com/Spectrollay) 对工作流的优化
 
-- 增加邮件通知和Server酱推送功能
+- **增加邮件通知和Server酱推送功能**
+- **增加参数`pr`、`fr`，苹果用户可用**
 
 ---
 
@@ -74,12 +75,14 @@
 |  SMTP_PORT  |   服务器端口   |
 |    EMAIL    |  接收通知的邮箱  |
 |  PASSWORD   |  邮箱的授权码   |
+创建表中对应的secret
 
 2. server酱推送
 打开 [https://sct\.ftqq\.com/](https://sct.ftqq.com/) 登录获取 `SCTxxxx` 密钥，备用
 |   配置    |    说明     |
 |:-----------:|:---------:|
 | SERVER_KEY | sever酱的key |
+创建secret
 
 ---
 
