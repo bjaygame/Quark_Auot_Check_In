@@ -73,6 +73,8 @@ jobs:
 
       - name: 执行签到脚本
         env:
+          QUARK_PR: ${{ secrets.QUARK_PR }}
+          QUARK_FR: ${{ secrets.QUARK_FR }}
           COOKIE_QUARK: ${{ secrets.COOKIE_QUARK }}
           SMTP_SERVER: ${{ secrets.SMTP_SERVER }}
           SMTP_PORT: ${{ secrets.SMTP_PORT }}
