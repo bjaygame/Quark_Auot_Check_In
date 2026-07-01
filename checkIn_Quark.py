@@ -7,6 +7,8 @@ from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 
 cookie_list = os.getenv("COOKIE_QUARK").split('\n|&&')
+pr = os.getenv("QUARK_PR", default="qk_clouddrive")
+fr = os.getenv("QUARK_FR", default="iphone")
 
 # 邮箱通知
 SMTP_SERVER = os.getenv("SMTP_SERVER")
@@ -115,8 +117,8 @@ class Quark:
         '''
         url = "https://drive-m.quark.cn/1/clouddrive/capacity/growth/info"
         querystring = {
-            "pr": "qk_clouddrive",
-            "fr": "iphone",
+            "pr": pr,
+            "fr": fr,
             "kps": self.param.get('kps'),
             "sign": self.param.get('sign'),
             "vcode": self.param.get('vcode')
@@ -135,8 +137,8 @@ class Quark:
         '''
         url = "https://drive-m.quark.cn/1/clouddrive/capacity/growth/sign"
         querystring = {
-            "pr": "qk_clouddrive",
-            "fr": "iphone",
+            "pr": pr,
+            "fr": fr,
             "kps": self.param.get('kps'),
             "sign": self.param.get('sign'),
             "vcode": self.param.get('vcode')
