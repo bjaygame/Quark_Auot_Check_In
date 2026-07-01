@@ -25,6 +25,8 @@
 - 感谢  [Spectrollay](https://github.com/Spectrollay) 对工作流的优化
 - 感谢  [haozihong ](https://github.com/Spectrollay) 对工作流的优化
 
+- 增加邮件通知和Server酱推送功能
+
 ---
 
 ## 📋 使用指南
@@ -33,24 +35,25 @@
 
 点击右上角的 `Fork` 按钮，将本项目复制到自己的 GitHub 仓库。
 
-### 2️⃣ 配置 Cookie 信息
+### 2️⃣ 配置信息
 
-通过 GitHub Secrets 配置用户的 Cookie 信息，具体步骤如下：
+通过 GitHub Secrets 配置用户的信息，具体步骤如下：
 
-#### 🛠️ 获取 COOKIE_QUARK
+#### 🛠️ 抓包
 
-使用手机抓包工具（小白推荐 [proxypin](https://github.com/wanghongenpin/proxypin)）获取 Cookie 信息：
+使用手机抓包工具（小白推荐 [proxypin](https://github.com/wanghongenpin/proxypin)，苹果可用Stream）获取 Cookie 信息：
 
 1. 打开手机抓包工具，访问夸克网盘签到页。
 2. 找到接口 `https://drive-m.quark.cn/1/clouddrive/capacity/growth/info` 的请求信息。
 3. 复制请求中的参数：`kps`、`sign` 和 `vcode`。【初步测试发现这个 Key 的值有效期在两个月左右】
-4. 将参数整理为以下格式：
+4. 将参数整理为以下格式，得到COOKIE_QUARK：
    ```
    user=张三; kps=abcdefg; sign=hijklmn; vcode=111111111;
    ```
 
    > `user` 字段为用户名，可随意填写。多个账户可用 **回车或 && 分隔**。
    >
+5.复制请求中的参数：`pr`、`fr`。 pr指登录的app(夸克为ucpro，夸克网盘为qk_clouddrive，配置后不用改)；fr指登录的设备(android或iphone,配置后不用改不用更改)
 
 #### 🔐 添加到 GitHub Secrets
 
@@ -58,6 +61,25 @@
 2. 点击 **Repository secrets** 分区下的 **New repository secret** 按钮。
 3. 创建名为 `COOKIE_QUARK` 的 Secret。
 4. 将整理好的 Cookie 信息粘贴到 "Secret" 输入框中并保存。
+5. 创建名为 `QUARK_PR`和`QUARK_FR` 的 Secret。
+
+#### 可选配置
+1. 邮箱通知
+> qq邮箱可访问网页的，然后点击头像-账号与安全-安全设置-生成授权码，获取授权码即密码
+> 服务器：smtp.qq.com 端口：587
+> **其他邮箱自行搜索**
+|   邮件通知配置    |    说明     |
+|:-----------:|:---------:|
+| SMTP_SERVER | smtp服务器地址 |
+|  SMTP_PORT  |   服务器端口   |
+|    EMAIL    |  接收通知的邮箱  |
+|  PASSWORD   |  邮箱的授权码   |
+
+2. server酱推送
+打开 [https://sct\.ftqq\.com/](https://sct.ftqq.com/) 登录获取 `SCTxxxx` 密钥，备用
+|   配置    |    说明     |
+|:-----------:|:---------:|
+| SERVER_KEY | sever酱的key |
 
 ---
 
